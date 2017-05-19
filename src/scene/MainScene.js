@@ -15,12 +15,34 @@ var MainScene = React.createClass({
             <ScrollableTabView
                 tabBarPosition='bottom'
                 renderTabBar={() => <DefaultTabBar/>}>
-                <Text tabLabel='Tab #1'>My</Text>
-                <Text tabLabel='Tab #2'>favorite</Text>
-                <Text tabLabel='Tab #3'>project</Text>
-                <Text tabLabel='Tab #4'>favorite</Text>
+
+                <View style={styles.content} tabLabel='play'>
+                    <Text>#1</Text>
+                </View>
+
+                <View style={styles.content} tabLabel='friends'>
+                    <Text>#2</Text>
+                </View>
+
+                <View style={styles.content} tabLabel='news'>
+                    <Text>#3</Text>
+                </View>
+
+                <View style={styles.content} tabLabel='me'>
+                    <Text>#4</Text>
+                </View>
+
             </ScrollableTabView>
         );
+    }
+});
+
+const styles = StyleSheet.create({
+    content: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#EBEBEB',
+        flex: 1
     }
 });
 
