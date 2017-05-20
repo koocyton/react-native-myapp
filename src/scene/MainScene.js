@@ -18,19 +18,19 @@ let MainScene = React.createClass({
                 tabBarPosition='bottom'
                 renderTabBar={() => <KIconTabBar/>}>
 
-                <View style={styles.content} tabLabel='play'>
+                <View style={styles.content} tabIcon='ios-paper' tabLabel='play'>
                     <Text>#1</Text>
                 </View>
 
-                <View style={styles.content} tabLabel='friends'>
+                <View style={styles.content} tabIcon='ios-albums' tabLabel='friends'>
                     <Text>#2</Text>
                 </View>
 
-                <View style={styles.content} tabLabel='news'>
+                <View style={styles.content} tabIcon='ios-paper-plane' tabLabel='news'>
                     <Text>#3</Text>
                 </View>
 
-                <View style={styles.content} tabLabel='me'>
+                <View style={styles.content} tabIcon='ios-person-add' tabLabel='me'>
                     <Text>#4</Text>
                 </View>
 

@@ -24,6 +24,7 @@ const IconTabBar = React.createClass({
         textStyle: Text.propTypes.style,
         tabStyle: View.propTypes.style,
         renderTabName: React.PropTypes.func,
+        tabIcons: React.PropTypes.array,
     },
 
     getDefaultProps() {
@@ -32,6 +33,7 @@ const IconTabBar = React.createClass({
             inactiveTextColor: '#ADADAD',
             backgroundColor: null,
             renderTabName: this.renderTabName,
+            tabIcons: ['ios-paper', 'ios-albums', 'ios-paper-plane', 'ios-person-add'],
         };
     },
 
@@ -51,15 +53,15 @@ const IconTabBar = React.createClass({
     },
 
     renderTabName(name, page, isTabActive) {
-        const { activeTextColor, inactiveTextColor, textStyle, } = this.props;
+        const { activeTextColor, inactiveTextColor, textStyle, tabIcons, } = this.props;
         const textColor = isTabActive ? activeTextColor : inactiveTextColor;
         const fontWeight = 'normal';//isTabActive ? 'bold' : 'normal';
-        const iconName = 'ios-paper';
+        const iconName = tabIcons[page];
 
         return <View style={[styles.tab, this.props.tabStyle, ]}>
             <Icon
                 name={iconName}
-                size={27}
+                size={25}
                 color={textColor}/>
             <Text style={[{color: textColor, fontWeight, }, textStyle, ]}>
                 {name}
