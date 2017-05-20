@@ -59,7 +59,7 @@ const IconTabBar = React.createClass({
         return <View style={[styles.tab, this.props.tabStyle, ]}>
             <Icon
                 name={iconName}
-                size={20}
+                size={27}
                 color={textColor}/>
             <Text style={[{color: textColor, fontWeight, }, textStyle, ]}>
                 {name}
