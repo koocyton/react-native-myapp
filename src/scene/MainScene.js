@@ -6,15 +6,17 @@ import {
     View
 } from 'react-native';
 
-import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
+import KIconTabBar from '../compose/KIconTabBar';
 
-var MainScene = React.createClass({
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+
+let MainScene = React.createClass({
 
     render() {
         return (
             <ScrollableTabView
                 tabBarPosition='bottom'
-                renderTabBar={() => <DefaultTabBar/>}>
+                renderTabBar={() => <KIconTabBar/>}>
 
                 <View style={styles.content} tabLabel='play'>
                     <Text>#1</Text>
