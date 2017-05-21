@@ -52,6 +52,14 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 
-#IDEA
+# root path
 .gradle
 .idea
+.babelrc
+.buckconfig
+.flowconfig
+.gitattributes
+.watchmanconfig
+app.json
+package.json
+yarn.lock
