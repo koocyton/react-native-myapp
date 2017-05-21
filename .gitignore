@@ -53,6 +53,8 @@ fastlane/Preview.html
 fastlane/screenshots
 
 # root path
+ios/
+android/
 .gradle
 .idea
 .babelrc
