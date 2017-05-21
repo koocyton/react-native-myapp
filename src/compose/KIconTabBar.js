@@ -33,7 +33,7 @@ const IconTabBar = React.createClass({
             inactiveTextColor: '#ADADAD',
             backgroundColor: null,
             renderTabName: this.renderTabName,
-            tabIcons: ['ios-paper', 'ios-albums', 'ios-paper-plane', 'ios-person-add'],
+            tabIcons: ['ios-game-controller-b', 'ios-people', 'ios-color-filter', 'ios-contact'],
         };
     },
 
