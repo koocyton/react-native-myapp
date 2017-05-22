@@ -17,6 +17,7 @@ let MainScene = React.createClass({
         return (
             <ScrollableTabView style={{flex:1}}
                 tabBarPosition='bottom'
+                scrollWithoutAnimation={true}
                 renderTabBar={() => <IconTabBar/>}>
 
                 <View style={styles.content} tabLabel='play'>
