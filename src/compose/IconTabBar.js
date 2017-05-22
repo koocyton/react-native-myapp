@@ -55,17 +55,13 @@ const IconTabBar = React.createClass({
     renderTabName(name, page, isTabActive) {
         const { activeTextColor, inactiveTextColor, textStyle, tabIcons, } = this.props;
         const textColor = isTabActive ? activeTextColor : inactiveTextColor;
-        const fontWeight = 'normal';//isTabActive ? 'bold' : 'normal';
         const iconName = tabIcons[page];
 
         return <View style={[styles.tab, this.props.tabStyle, ]}>
             <Icon
                 name={iconName}
-                size={25}
+                size={30}
                 color={textColor}/>
-            <Text style={[{color: textColor, fontWeight, }, textStyle, ]}>
-                {name}
-            </Text>
         </View>;
     },
 

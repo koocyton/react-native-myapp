@@ -17,22 +17,8 @@ const GameItem = React.createClass({
                         <View style={styles.left}>
                             <Image style={styles.icon} source={this.props.detail.icon} />
                         </View>
-                        <View style={styles.center}>
-                            <Text style={{fontSize:16,color:'#546979'}}>{this.props.detail.title}</Text>
-                            <Text style={{fontSize:16,color:'#546979'}}>{this.props.detail.date}</Text>
-                        </View>
-                        <View style={styles.right}>
-                            <Text style={{fontSize:17,color:'#B07267'}}>¥{this.props.detail.money}</Text>
-                        </View>
                     </View>
                 </TouchableOpacity>
-
-                <View style={styles.close}>
-                    <TouchableOpacity activeOpacity={0.5} onPress={()=>this.delete()}>
-                        <Image style={{height:22,width:22,resizeMode: 'stretch',}} source={require('../asset/01.png')}/>
-                    </TouchableOpacity>
-                </View>
-
             </View>
         );
     },
@@ -48,7 +34,7 @@ const GameItem = React.createClass({
 
 var styles = StyleSheet.create({
     container:{
-        height:60,
+        height:260,
         borderColor:'#E2E9EB',
         borderWidth:1,
         borderRadius:0.5,
@@ -72,21 +58,12 @@ var styles = StyleSheet.create({
         position: 'absolute'
     },
     icon:{
-        width:40,
-        height:40,
-        borderRadius:20
+        flex:1,
+        height:100,
+        width:360,
     },
     left:{
         flex:1,
-        justifyContent:'center',
-        alignItems:'center'
-    },
-    center:{
-        flex:3,
-        justifyContent:'center'
-    },
-    right:{
-        flex:1.5,
         justifyContent:'center',
         alignItems:'center'
     }

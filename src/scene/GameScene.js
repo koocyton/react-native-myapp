@@ -15,11 +15,6 @@ var details = [
     {title:'住宿',icon:require('../asset/03.png'),date:'2016.02.24',money:'25'},
     {title:'餐饮',icon:require('../asset/04.png'),date:'2016.02.25',money:'125'},
     {title:'补助',icon:require('../asset/05.png'),date:'2016.02.26',money:'63'},
-    {title:'办公',icon:require('../asset/06.png'),date:'2016.03.11',money:'476'},
-    {title:'福利',icon:require('../asset/07.png'),date:'2016.03.12',money:'55'},
-    {title:'市场',icon:require('../asset/08.png'),date:'2016.03.13',money:'84'},
-    {title:'研发',icon:require('../asset/09.png'),date:'2016.03.14',money:'198'},
-    {title:'广告',icon:require('../asset/10.png'),date:'2016.03.15',money:'24'},
 ];
 
 let GameScene = React.createClass({
@@ -58,9 +53,11 @@ let GameScene = React.createClass({
 
 var styles = StyleSheet.create({
     container: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
         flex: 1,
-        backgroundColor:'#F8F8F8',
-        flexDirection: 'column',
+        marginTop:20,
+        backgroundColor:'#FFFFFF',
     }
 });
 

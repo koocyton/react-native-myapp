@@ -14,12 +14,12 @@ let MainScene = React.createClass({
 
     render() {
         return (
-            <ScrollableTabView
+            <ScrollableTabView style={{flex:1}}
                 tabBarPosition='bottom'
                 renderTabBar={() => <IconTabBar/>}>
 
                 <View style={styles.content} tabLabel='play'>
-                    <GameScene>#1</GameScene>
+                    <GameScene />
                 </View>
 
                 <View style={styles.content} tabLabel='friends'>
