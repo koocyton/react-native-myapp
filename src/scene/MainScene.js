@@ -5,10 +5,10 @@ import {
     Text,
     View
 } from 'react-native';
-
-import KIconTabBar from '../compose/KIconTabBar';
-
+import IconTabBar from '../compose/IconTabBar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
+
+import GameScene from './GameScene';
 
 let MainScene = React.createClass({
 
@@ -16,21 +16,21 @@ let MainScene = React.createClass({
         return (
             <ScrollableTabView
                 tabBarPosition='bottom'
-                renderTabBar={() => <KIconTabBar/>}>
+                renderTabBar={() => <IconTabBar/>}>
 
-                <View style={styles.content} tabIcon='ios-paper' tabLabel='play'>
-                    <Text>#1</Text>
+                <View style={styles.content} tabLabel='play'>
+                    <GameScene>#1</GameScene>
                 </View>
 
-                <View style={styles.content} tabIcon='ios-albums' tabLabel='friends'>
+                <View style={styles.content} tabLabel='friends'>
                     <Text>#2</Text>
                 </View>
 
-                <View style={styles.content} tabIcon='ios-paper-plane' tabLabel='news'>
+                <View style={styles.content} tabLabel='news'>
                     <Text>#3</Text>
                 </View>
 
-                <View style={styles.content} tabIcon='ios-person-add' tabLabel='me'>
+                <View style={styles.content} tabLabel='me'>
                     <Text>#4</Text>
                 </View>
 
