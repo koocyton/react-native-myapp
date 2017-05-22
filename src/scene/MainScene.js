@@ -9,6 +9,7 @@ import IconTabBar from '../compose/IconTabBar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import GameScene from './GameScene';
+import FriendScene from './FriendScene';
 
 let MainScene = React.createClass({
 
@@ -23,7 +24,7 @@ let MainScene = React.createClass({
                 </View>
 
                 <View style={styles.content} tabLabel='friends'>
-                    <Text>#2</Text>
+                    <FriendScene />
                 </View>
 
                 <View style={styles.content} tabLabel='news'>
