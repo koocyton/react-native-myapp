@@ -34,17 +34,19 @@ const GameItem = React.createClass({
 
 var styles = StyleSheet.create({
     container:{
+        flex:1,
         height:260,
-        borderColor:'#E2E9EB',
-        borderWidth:1,
-        borderRadius:0.5,
+        //borderColor:'#E2E9EB',
+        //borderWidth:1,
+        //borderRadius:0.5,
         marginLeft:10,
         marginRight:10,
         marginTop:10,
         marginBottom:10,
-        backgroundColor:'#FFF',
+        backgroundColor:'#FFFFFF',
         flexDirection:'row'
     },
+    /*
     close:{
         width:22,
         height:22,
@@ -57,10 +59,11 @@ var styles = StyleSheet.create({
         right:0,
         position: 'absolute'
     },
+    */
     icon:{
         flex:1,
         height:100,
-        width:360,
+        width:420
     },
     left:{
         flex:1,

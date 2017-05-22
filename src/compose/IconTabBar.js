@@ -68,7 +68,10 @@ const IconTabBar = React.createClass({
     render() {
         return (
             <View style={[styles.tabs, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}>
-                {this.props.tabs.map((tab, i) => this.renderTabOption(tab, i))}
+                {
+                    this.props.tabs.map((tab, i) => this.renderTabOption(tab, i))
+                }
+                <View style={styles.border} />
             </View>
         );
     },
@@ -91,6 +94,15 @@ const styles = StyleSheet.create({
         borderRightWidth: 0,
         borderBottomColor: '#ccc',
     },
+    border:{
+        flex: 1,
+        height:1,
+        backgroundColor:'#eeeeee',
+        bottom:48,
+        left:0,
+        right:0,
+        position: 'absolute'
+    }
 });
 
 module.exports = IconTabBar;
