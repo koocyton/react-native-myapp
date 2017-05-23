@@ -4,17 +4,17 @@ import {
     StyleSheet,
     ScrollView,
     View,
-    ToastAndroid,
+    ToastAndroid
 } from 'react-native';
 
-import GameItem from '../compose/GameItem';
+import GameItem from '../../widget/GameItem';
 
 var details = [
-    {title:'长途',icon:require('../asset/01.png'),date:'2016.02.22',money:'332'},
-    {title:'交通',icon:require('../asset/02.png'),date:'2016.02.23',money:'65'},
-    {title:'住宿',icon:require('../asset/03.png'),date:'2016.02.24',money:'25'},
-    {title:'餐饮',icon:require('../asset/04.png'),date:'2016.02.25',money:'125'},
-    {title:'补助',icon:require('../asset/05.png'),date:'2016.02.26',money:'63'},
+    {title:'长途',icon:require('../../asset/image/01.png'),date:'2016.02.22',money:'332'},
+    {title:'交通',icon:require('../../asset/image/02.png'),date:'2016.02.23',money:'65'},
+    {title:'住宿',icon:require('../../asset/image/03.png'),date:'2016.02.24',money:'25'},
+    {title:'餐饮',icon:require('../../asset/image/04.png'),date:'2016.02.25',money:'125'},
+    {title:'补助',icon:require('../../asset/image/05.png'),date:'2016.02.26',money:'63'},
 ];
 
 let GameScene = React.createClass({
@@ -34,6 +34,7 @@ let GameScene = React.createClass({
     },
 
     render() {
+
         return (
             <View style={styles.container}>
                 <ScrollView keyboardDismissMode={'on-drag'}>
@@ -51,7 +52,7 @@ let GameScene = React.createClass({
 });
 
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-around',

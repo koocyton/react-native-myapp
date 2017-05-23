@@ -6,16 +6,17 @@ import {
     Text,
     View,
     Image,
+    StatusBar,
     ToastAndroid,
 } from 'react-native';
 
 
 var friends = [
-    {title:'长途',face:require('../asset/01.png'),date:'2016.02.22',money:'332'},
-    {title:'交通',face:require('../asset/02.png'),date:'2016.02.23',money:'65'},
-    {title:'住宿',face:require('../asset/03.png'),date:'2016.02.24',money:'25'},
-    {title:'餐饮',face:require('../asset/04.png'),date:'2016.02.25',money:'125'},
-    {title:'补助',face:require('../asset/05.png'),date:'2016.02.26',money:'63'},
+    {title:'长途',face:require('../../asset/image/01.png'),date:'2016.02.22',money:'332'},
+    {title:'交通',face:require('../../asset/image/02.png'),date:'2016.02.23',money:'65'},
+    {title:'住宿',face:require('../../asset/image/03.png'),date:'2016.02.24',money:'25'},
+    {title:'餐饮',face:require('../../asset/image/04.png'),date:'2016.02.25',money:'125'},
+    {title:'补助',face:require('../../asset/image/05.png'),date:'2016.02.26',money:'63'},
 ];
 
 let FriendScene = React.createClass({
@@ -28,8 +29,13 @@ let FriendScene = React.createClass({
     },
 
     render() {
+
         return (
             <View style={styles.container}>
+                <StatusBar
+                    backgroundColor='#2f2f2f'
+                    hidden={false}
+                />
                 <ScrollView keyboardDismissMode={'on-drag'}>
                     {
                         friends.map((item,i)=>this.renderFriendItem(item,i))

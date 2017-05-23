@@ -3,7 +3,6 @@ const React = require('react');
 import {
     Image,
     StyleSheet,
-    Text,
     TouchableOpacity,
     View,
 } from 'react-native';
@@ -32,7 +31,7 @@ const GameItem = React.createClass({
     }
 });
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
     container:{
         flex:1,
         height:260,

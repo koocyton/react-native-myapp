@@ -2,9 +2,7 @@ const React = require('react');
 const ReactNative = require('react-native');
 const {
     StyleSheet,
-    Text,
     View,
-    Animated,
 } = ReactNative;
 
 import Button from 'react-native-scrollable-tab-view/Button';
@@ -12,55 +10,54 @@ import Button from 'react-native-scrollable-tab-view/Button';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const IconTabBar = React.createClass({
+
     propTypes: {
         goToPage: React.PropTypes.func,
         activeTab: React.PropTypes.number,
         tabs: React.PropTypes.array,
-        underlineColor: React.PropTypes.string,
-        underlineHeight: React.PropTypes.number,
+        borderColor: React.PropTypes.string,
         backgroundColor: React.PropTypes.string,
-        activeTextColor: React.PropTypes.string,
-        inactiveTextColor: React.PropTypes.string,
-        textStyle: Text.propTypes.style,
-        tabStyle: View.propTypes.style,
-        renderTabName: React.PropTypes.func,
+        activeColor: React.PropTypes.string,
+        inactiveColor: React.PropTypes.string,
         tabIcons: React.PropTypes.array,
+        iconSize: React.PropTypes.number,
     },
 
     getDefaultProps() {
         return {
-            activeTextColor: '#6B8E23' ,
-            inactiveTextColor: '#ADADAD',
-            backgroundColor: null,
-            renderTabName: this.renderTabName,
-            tabIcons: ['ios-game-controller-b', 'ios-people', 'ios-color-filter', 'ios-contact'],
+            activeColor: '#6B8E23' ,
+            inactiveColor: '#ADADAD',
+            backgroundColor: '#FFFFFF',
+            borderColor: '#666666',
+            tabIcons: [],
+            iconSize: 30,
         };
     },
 
-    renderTabOption(name, page) {
+    renderTabOption(tabIcon, page) {
         const isTabActive = this.props.activeTab === page;
 
         return <Button
             style={{flex: 1, }}
-            key={name}
+            key={tabIcon.name}
             accessible={true}
-            accessibilityLabel={name}
+            accessibilityLabel={tabIcon.name}
             accessibilityTraits='button'
             onPress={() => this.props.goToPage(page)}
         >
-            {this.renderTabName(name, page, isTabActive)}
+            {this.renderTabName(tabIcon, page, isTabActive)}
         </Button>;
     },
 
-    renderTabName(name, page, isTabActive) {
-        const { activeTextColor, inactiveTextColor, textStyle, tabIcons, } = this.props;
-        const textColor = isTabActive ? activeTextColor : inactiveTextColor;
-        const iconName = tabIcons[page];
+    renderTabName(tabIcon, page, isTabActive) {
+        const { activeColor, inactiveColor, } = this.props;
+        const textColor = isTabActive ? activeColor : inactiveColor;
+        const icon = isTabActive ? tabIcon.activeIcon : tabIcon.inactiveIcon;
 
         return <View style={[styles.tab, this.props.tabStyle, ]}>
             <Icon
-                name={iconName}
-                size={30}
+                name={icon}
+                size={this.props.iconSize}
                 color={textColor}/>
         </View>;
     },
@@ -69,7 +66,7 @@ const IconTabBar = React.createClass({
         return (
             <View style={[styles.tabs, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}>
                 {
-                    this.props.tabs.map((tab, i) => this.renderTabOption(tab, i))
+                    this.props.tabIcons.map((tabIcon, i) => this.renderTabOption(tabIcon, i))
                 }
                 <View style={styles.border} />
             </View>
@@ -97,7 +94,7 @@ const styles = StyleSheet.create({
     border:{
         flex: 1,
         height:1,
-        backgroundColor:'#eeeeee',
+        backgroundColor:'#dddddd',
         bottom:48,
         left:0,
         right:0,
