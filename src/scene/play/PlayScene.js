@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
     StyleSheet,
@@ -7,72 +6,76 @@ import {
     Image,
     StatusBar,
     Button,
+    Text,
 } from 'react-native';
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {
     StackNavigator,
 } from 'react-navigation';
 
-class TabScreen extends React.Component {
-    static navigationOptions = {
-        title: 'Welcome',
-    };
+
+
+
+// class GameScreen extends React.Component {
+let GameScreen = React.createClass({
+
+    games : [
+        {title: '长途', face: require('../../asset/image/01.png'), date: '2016.02.22', money: '332'},
+        {title: '交通', face: require('../../asset/image/02.png'), date: '2016.02.23', money: '65'},
+        {title: '住宿', face: require('../../asset/image/03.png'), date: '2016.02.24', money: '25'},
+        {title: '餐饮', face: require('../../asset/image/04.png'), date: '2016.02.25', money: '125'},
+        {title: '补助', face: require('../../asset/image/05.png'), date: '2016.02.26', money: '63'},
+    ],
+
+    renderGameItem(game, i) {
+        return <View key={i} detail={game} style={styles.game}>
+            <Image style={styles.gameBackground} source={game.face}/>
+        </View>;
+    },
+
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <Button
-                title="Go to Jane's profile"
-                onPress={() => navigate('Profile', { name: 'Jane' })}
-            />
+            <View>
+                <ScrollView keyboardDismissMode={'on-drag'}>
+                    {
+                        this.games.map((game,i)=>this.renderGameItem(game,i))
+                    }
+                </ScrollView>
+            </View>
         );
-    }
-}
+    },
+});
 
-const Navigator = StackNavigator(
+const GameNavigator = StackNavigator(
     {
-        Tab: { screen: TabScreen },
+        gameScreen: { screen: GameScreen },
     },
     {
         navigationOptions: {
-            // headerStyle: { backgroundColor: color.theme }
+            headerStyle: { backgroundColor: '#333333', },
             headerBackTitle: null,
-            headerTintColor: '#333333',
+            headerTintColor: '#FFFFFF',
+            title: '狼人杀',
             showIcon: true,
+            headerRight: <View style={{marginRight:20}}>
+                <Icon name='ios-people-outline' size={25} color='#ffffff' />
+            </View>
         },
     }
 );
 
 let PlayScene = React.createClass({
 
-    games : [
-        {title:'长途',face:require('../../asset/image/01.png'),date:'2016.02.22',money:'332'},
-        {title:'交通',face:require('../../asset/image/02.png'),date:'2016.02.23',money:'65'},
-        {title:'住宿',face:require('../../asset/image/03.png'),date:'2016.02.24',money:'25'},
-        {title:'餐饮',face:require('../../asset/image/04.png'),date:'2016.02.25',money:'125'},
-        {title:'补助',face:require('../../asset/image/05.png'),date:'2016.02.26',money:'63'},
-    ],
-
-    renderGameItem(game , i) {
-        return <View key={i} detail={game} style={styles.game}>
-            <Image style={styles.gameBackground} source={game.face} />
-        </View>;
-    },
-
     render() {
         StatusBar.setBarStyle('light-content');
+        // StatusBar.setBackgroundColor('#333333');
 
         return (
             <View style={styles.container}>
-                <View style={{height:50}}>
-                    <Navigator initialRoute={{statusBarHidden: false}} />
-                </View>
-                <View style={{flex:1}}>
-                    <ScrollView keyboardDismissMode={'on-drag'}>
-                        {
-                            this.games.map((game,i)=>this.renderGameItem(game,i))
-                        }
-                    </ScrollView>
-                </View>
+                <GameNavigator initialRoute={{statusBarHidden: false}}/>
             </View>
         );
     }
@@ -86,21 +89,26 @@ let styles = StyleSheet.create({
         flex: 1,
     },
     game: {
-        height:400,
-        flex: 1,
+        height: 400,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginBottom:10,
-        marginLeft:10,
-        marginRight:10,
-        marginTop:10,
-        backgroundColor:'#EEEEEE',
-        borderRadius:2,
-        overflow:'hidden',
+        marginBottom: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 10,
+        overflow: 'hidden',
     },
     gameBackground: {
-        height:400,
+        height: 400,
         flex: 1,
+    },
+    tab: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingBottom: 0,
     }
 });
 
