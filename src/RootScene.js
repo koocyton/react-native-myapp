@@ -36,7 +36,7 @@ let MainScene = React.createClass({
                     tabIcons={this.tabIcons}
                     activeColor='#6B8E23'
                     inactiveColor='#777777'
-                    backgroundColor='#EEEEEE'
+                    backgroundColor='#EFEFEF'
                     borderColor='#DFDFDF'
                     iconSize={35}
                 />}>

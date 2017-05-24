@@ -38,7 +38,7 @@ let GameScreen = React.createClass({
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View>
+            <View style={{backgroundColor:'#ffffff',}}>
                 <ScrollView keyboardDismissMode={'on-drag'}>
                     {
                         this.games.map((game,i)=>this.renderGameItem(game,i))
@@ -92,7 +92,6 @@ let styles = StyleSheet.create({
         height: 400,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginBottom: 10,
         marginLeft: 10,
         marginRight: 10,
         marginTop: 10,

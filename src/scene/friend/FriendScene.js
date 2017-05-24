@@ -35,7 +35,7 @@ let PersonScreen = React.createClass({
         } = this.props.navigation;
 
         return (
-            <View>
+            <View style={{backgroundColor:'#ffffff',}}>
                 <ScrollView keyboardDismissMode={'on-drag'}>
                     {
                         this.persons.map((person,i)=>this.renderPersonItem(person,i))
@@ -55,7 +55,7 @@ const PersonNavigator = StackNavigator(
             headerStyle: { backgroundColor: '#333333', },
             headerBackTitle: null,
             headerTintColor: '#FFFFFF',
-            title: '你的好友',
+            title: '好友',
             showIcon: true,
             headerRight: <View style={{marginRight:20}}>
                 <Icon name='md-person-add' size={20} color='#ffffff' />
