@@ -4,50 +4,77 @@ import {
     StyleSheet,
     ScrollView,
     View,
-    ToastAndroid
+    Image,
+    StatusBar,
+    Button,
 } from 'react-native';
 
-import GameItem from '../../widget/GameItem';
+import {
+    StackNavigator,
+} from 'react-navigation';
 
-var details = [
-    {title:'长途',icon:require('../../asset/image/01.png'),date:'2016.02.22',money:'332'},
-    {title:'交通',icon:require('../../asset/image/02.png'),date:'2016.02.23',money:'65'},
-    {title:'住宿',icon:require('../../asset/image/03.png'),date:'2016.02.24',money:'25'},
-    {title:'餐饮',icon:require('../../asset/image/04.png'),date:'2016.02.25',money:'125'},
-    {title:'补助',icon:require('../../asset/image/05.png'),date:'2016.02.26',money:'63'},
-];
+class TabScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Welcome',
+    };
+    render() {
+        const { navigate } = this.props.navigation;
+        return (
+            <Button
+                title="Go to Jane's profile"
+                onPress={() => navigate('Profile', { name: 'Jane' })}
+            />
+        );
+    }
+}
 
-let GameScene = React.createClass({
-
-    renderExpenseItem(item , i) {
-        return <GameItem key={i} detail={item} onClick={()=>this.onClick(i)} onDelete={()=>this.onDelete(i)}/>;
+const Navigator = StackNavigator(
+    {
+        Tab: { screen: TabScreen },
     },
+    {
+        navigationOptions: {
+            // headerStyle: { backgroundColor: color.theme }
+            headerBackTitle: null,
+            headerTintColor: '#333333',
+            showIcon: true,
+        },
+    }
+);
 
-    //修改消费明细
-    onClick(i){
-        this.toastMessage("onClick : "+i);
-    },
+let PlayScene = React.createClass({
 
-    //删除单条消费记录
-    onDelete(i) {
-        this.toastMessage("onDelete : "+i);
+    games : [
+        {title:'长途',face:require('../../asset/image/01.png'),date:'2016.02.22',money:'332'},
+        {title:'交通',face:require('../../asset/image/02.png'),date:'2016.02.23',money:'65'},
+        {title:'住宿',face:require('../../asset/image/03.png'),date:'2016.02.24',money:'25'},
+        {title:'餐饮',face:require('../../asset/image/04.png'),date:'2016.02.25',money:'125'},
+        {title:'补助',face:require('../../asset/image/05.png'),date:'2016.02.26',money:'63'},
+    ],
+
+    renderGameItem(game , i) {
+        return <View key={i} detail={game} style={styles.game}>
+            <Image style={styles.gameBackground} source={game.face} />
+        </View>;
     },
 
     render() {
+        StatusBar.setBarStyle('light-content');
 
         return (
             <View style={styles.container}>
-                <ScrollView keyboardDismissMode={'on-drag'}>
-                    {
-                        details.map((item,i)=>this.renderExpenseItem(item,i))
-                    }
-                </ScrollView>
+                <View style={{height:50}}>
+                    <Navigator initialRoute={{statusBarHidden: false}} />
+                </View>
+                <View style={{flex:1}}>
+                    <ScrollView keyboardDismissMode={'on-drag'}>
+                        {
+                            this.games.map((game,i)=>this.renderGameItem(game,i))
+                        }
+                    </ScrollView>
+                </View>
             </View>
         );
-    },
-
-    toastMessage(alertMessage){
-        ToastAndroid.show(alertMessage,ToastAndroid.SHORT);
     }
 });
 
@@ -57,9 +84,24 @@ let styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         flex: 1,
-        marginTop:20,
-        backgroundColor:'#FFFFFF',
+    },
+    game: {
+        height:400,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginBottom:10,
+        marginLeft:10,
+        marginRight:10,
+        marginTop:10,
+        backgroundColor:'#EEEEEE',
+        borderRadius:2,
+        overflow:'hidden',
+    },
+    gameBackground: {
+        height:400,
+        flex: 1,
     }
 });
 
-module.exports = GameScene;
+module.exports = PlayScene;

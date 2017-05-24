@@ -37,7 +37,7 @@ let MainScene = React.createClass({
                     activeColor='#6B8E23'
                     inactiveColor='#777777'
                     backgroundColor='#FFFFFF'
-                    borderColor='#666666'
+                    borderColor='#DFDFDF'
                     iconSize={35}
                 />}>
 
