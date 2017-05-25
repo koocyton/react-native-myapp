@@ -1,82 +1,49 @@
-import React from 'react';
-import {
-    StyleSheet,
-    ScrollView,
-    View,
-    StatusBar,
-    Text,
-} from 'react-native';
+import React, { Component, } from 'react';
+import { StyleSheet, ScrollView, View, Image, StatusBar, } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
-import {
-    StackNavigator,
-} from 'react-navigation';
+// let PlayScene = React.createClass({
+class FriendScene extends Component {
 
-let PersonScreen = React.createClass({
+    static navigationOptions = ({ navigationOptions }) => ({
+        headerRight: (
+            <View style={{marginRight:20}}>
+                <Icon name='md-person-add' size={20} color='#ffffff' />
+            </View>
+        )
+    });
 
-    persons : [
+    games = [
         {title: '长途', face: require('../../asset/image/01.png'), date: '2016.02.22', money: '332'},
         {title: '交通', face: require('../../asset/image/02.png'), date: '2016.02.23', money: '65'},
         {title: '住宿', face: require('../../asset/image/03.png'), date: '2016.02.24', money: '25'},
         {title: '餐饮', face: require('../../asset/image/04.png'), date: '2016.02.25', money: '125'},
         {title: '补助', face: require('../../asset/image/05.png'), date: '2016.02.26', money: '63'},
-    ],
+    ];
 
-    renderPersonItem(person, i) {
-        return <View key={i} detail={person} style={styles.person}>
-            <Text>{person.title}</Text>
+    renderGameItem(game, i) {
+        return <View key={i} detail={game} style={styles.game}>
+            <Image style={styles.gameBackground} source={game.face}/>
         </View>;
-    },
+    };
 
     render() {
-        const {
-            navigate
-        } = this.props.navigation;
+        // status bar style
+        StatusBar.setBarStyle('light-content');
 
         return (
-            <View style={{backgroundColor:'#ffffff',}}>
+            <View style={styles.container}>
                 <ScrollView keyboardDismissMode={'on-drag'}>
                     {
-                        this.persons.map((person,i)=>this.renderPersonItem(person,i))
+                        this.games.map((game,i)=>this.renderGameItem(game,i))
                     }
                 </ScrollView>
             </View>
         );
-    },
-});
-
-const PersonNavigator = StackNavigator(
-    {
-        personScreen: { screen: PersonScreen },
-    },
-    {
-        navigationOptions: {
-            headerStyle: { backgroundColor: '#333333', },
-            headerBackTitle: null,
-            headerTintColor: '#FFFFFF',
-            title: '好友',
-            showIcon: true,
-            headerRight: <View style={{marginRight:20}}>
-                <Icon name='md-person-add' size={20} color='#ffffff' />
-            </View>
-        },
-    }
-);
-
-let FriendScene = React.createClass({
-
-    render() {
-        StatusBar.setBarStyle('light-content');
-        // StatusBar.setBackgroundColor('#333333');
-
-        return (
-            <View style={styles.container}>
-                <PersonNavigator initialRoute={{statusBarHidden: false}}/>
-            </View>
-        );
-    }
-});
+    };
+}
 
 
 let styles = StyleSheet.create({
@@ -85,13 +52,20 @@ let styles = StyleSheet.create({
         justifyContent: 'space-around',
         flex: 1,
     },
-    person: {
-        height: 30,
+    game: {
+        height: 400,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginTop: 1,
-        backgroundColor: '#EEEEEE',
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 10,
         overflow: 'hidden',
+    },
+    gameBackground: {
+        height: 400,
+        flex: 1,
     },
     tab: {
         flex: 1,
