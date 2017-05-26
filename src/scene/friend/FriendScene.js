@@ -1,16 +1,15 @@
 import React, { Component, } from 'react';
-import { StyleSheet, ScrollView, View, Image, StatusBar, } from 'react-native';
+import { StyleSheet, ScrollView, View, Image, } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
-// let PlayScene = React.createClass({
 class FriendScene extends Component {
 
-    static navigationOptions = ({ navigationOptions }) => ({
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Friends',
         headerRight: (
             <View style={{marginRight:20}}>
-                <Icon name='md-person-add' size={20} color='#ffffff' />
+                <Icon onPress={() => navigation.navigate('Invite')} name='md-person-add' size={20} color='#ffffff' />
             </View>
         )
     });
@@ -23,21 +22,19 @@ class FriendScene extends Component {
         {title: '补助', face: require('../../asset/image/05.png'), date: '2016.02.26', money: '63'},
     ];
 
-    renderGameItem(game, i) {
+    static renderGameItem(game, i) {
         return <View key={i} detail={game} style={styles.game}>
             <Image style={styles.gameBackground} source={game.face}/>
         </View>;
     };
 
     render() {
-        // status bar style
-        StatusBar.setBarStyle('light-content');
 
         return (
             <View style={styles.container}>
                 <ScrollView keyboardDismissMode={'on-drag'}>
                     {
-                        this.games.map((game,i)=>this.renderGameItem(game,i))
+                        this.games.map((game,i)=>FriendScene.renderGameItem(game,i))
                     }
                 </ScrollView>
             </View>

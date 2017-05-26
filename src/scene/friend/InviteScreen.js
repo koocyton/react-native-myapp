@@ -17,9 +17,6 @@ import {
 let InviteScreen = React.createClass({
 
     render() {
-        const {
-            navigate
-        } = this.props.navigation;
 
         return (
             <View style={{backgroundColor:'#ffffff',}}>

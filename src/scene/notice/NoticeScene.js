@@ -14,7 +14,7 @@ import {
     StackNavigator,
 } from 'react-navigation';
 
-let NoticeScreen = React.createClass({
+let NoticeScene = React.createClass({
 
     notices : [
         {title: '长途', face: require('../../asset/image/01.png'), date: '2016.02.22', money: '332'},
@@ -48,37 +48,6 @@ let NoticeScreen = React.createClass({
     },
 });
 
-const NoticeNavigator = StackNavigator(
-    {
-        noticeScene: { screen: NoticeScreen },
-    },
-    {
-        navigationOptions: {
-            headerStyle: { backgroundColor: '#333333', },
-            headerBackTitle: null,
-            headerTintColor: '#FFFFFF',
-            title: '聚',
-            showIcon: true,
-            headerRight: <View style={{marginRight:20}}>
-                <Icon name='md-person-add' size={20} color='#ffffff' />
-            </View>
-        },
-    }
-);
-
-let NoticeScene = React.createClass({
-
-    render() {
-        StatusBar.setBarStyle('light-content');
-        // StatusBar.setBackgroundColor('#333333');
-
-        return (
-            <View style={styles.container}>
-                <NoticeNavigator initialRoute={{statusBarHidden: false}}/>
-            </View>
-        );
-    }
-});
 
 
 let styles = StyleSheet.create({

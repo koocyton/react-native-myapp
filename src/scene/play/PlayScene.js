@@ -1,11 +1,11 @@
 import React, {Component,} from 'react';
-import {StyleSheet, ScrollView, View, Image, StatusBar,} from 'react-native';
+import {StyleSheet, ScrollView, View, Image, StatusBar, } from 'react-native';
 
-import Icon from 'react-native-vector-icons/Ionicons';
-import {StackNavigator, } from 'react-navigation';
+class PlayScene extends Component {
 
-// let PlayScene = React.createClass({
-class PlayScreen extends Component {
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Games',
+    });
 
     games = [
         {title: '长途', face: require('../../asset/image/01.png'), date: '2016.02.22', money: '332'},
@@ -15,21 +15,19 @@ class PlayScreen extends Component {
         {title: '补助', face: require('../../asset/image/05.png'), date: '2016.02.26', money: '63'},
     ];
 
-    renderGameItem(game, i) {
+    static renderGameItem(game, i) {
         return <View key={i} detail={game} style={styles.game}>
             <Image style={styles.gameBackground} source={game.face}/>
         </View>;
     };
 
     render() {
-        // status bar style
-        StatusBar.setBarStyle('light-content');
 
         return (
             <View style={styles.container}>
                 <ScrollView keyboardDismissMode={'on-drag'}>
                     {
-                        this.games.map((game, i) => this.renderGameItem(game, i))
+                        this.games.map((game, i) => PlayScene.renderGameItem(game, i))
                     }
                 </ScrollView>
             </View>
@@ -67,20 +65,5 @@ let styles = StyleSheet.create({
     }
 });
 
-
-let PlayScene = StackNavigator(
-    {
-        playScreen: {screen: PlayScreen},
-    },
-    {
-        navigationOptions: {
-            headerStyle: {backgroundColor: '#333333',},
-            headerBackTitle: null,
-            headerTintColor: '#FFFFFF',
-            title: null,
-            showIcon: true,
-        },
-    }
-);
 
 module.exports = PlayScene;

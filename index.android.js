@@ -9,6 +9,6 @@ import {
     AppRegistry
 } from 'react-native';
 
-var MainScene = require('./src/RootScene')
+let RootScene = require('./src/RootScene')
 
-AppRegistry.registerComponent('AppDoopp', () => MainScene);
+AppRegistry.registerComponent('AppDoopp', () => RootScene);
