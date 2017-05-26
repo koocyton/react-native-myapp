@@ -25,7 +25,7 @@ class PlayScene extends Component {
 
         return (
             <View style={styles.container}>
-                <ScrollView keyboardDismissMode={'on-drag'}>
+                <ScrollView style={{marginBottom: 10,}} keyboardDismissMode={'on-drag'}>
                     {
                         this.games.map((game, i) => PlayScene.renderGameItem(game, i))
                     }

@@ -41,6 +41,12 @@ class FriendScene extends Component {
         return <View key={i} detail={friend} style={styles.game}>
             <Image style={styles.portrait} source={friend.portrait}/>
             <Text style={styles.name}>{friend.name}</Text>
+            <View style={styles.info}>
+                <Text>Online</Text>
+            </View>
+            <View style={styles.info}>
+                <Text>Lv10</Text>
+            </View>
         </View>
     };
 
@@ -77,16 +83,28 @@ let styles = StyleSheet.create({
         borderBottomColor:'#EEEEEE',
         alignContent:'flex-start',
     },
+    info: {
+        height: 30,
+        marginRight: 8,
+        marginTop: 16,
+        marginBottom: 16,
+    },
     name: {
         height: 30,
-        width: 150,
-        padding: 14,
+        flex: 1,
+        marginLeft: 8,
+        marginTop: 16,
+        marginBottom: 16,
+        textAlign: 'left',
+        fontWeight: 'bold',
     },
     portrait: {
-        height: 30,
-        width: 30,
-        padding: 10,
-        left:10,
+        height: 40,
+        width: 40,
+        marginLeft: 10,
+        marginTop: 4,
+        marginBottom: 4,
+        borderRadius: 4,
     },
 });
 

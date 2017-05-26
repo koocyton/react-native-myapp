@@ -1,19 +1,21 @@
 
-import React from 'react';
+import React, { Component, } from 'react';
 import { StyleSheet, ScrollView, View } from 'react-native';
 
 
-let MineScene = React.createClass({
+class MineScene extends Component {
+
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Mine',
+    });
 
     render() {
         return (
             <View style={styles.container}>
-                <ScrollView keyboardDismissMode={'on-drag'}>
-                </ScrollView>
             </View>
         );
     }
-});
+};
 
 
 let styles = StyleSheet.create({
@@ -21,7 +23,7 @@ let styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         flex: 1,
-        marginTop:20,
+        height:100,
         backgroundColor:'#FFFFFF',
     }
 });
