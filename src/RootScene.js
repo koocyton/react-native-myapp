@@ -89,7 +89,6 @@ const TabsScene = TabNavigator(
 let Navigator = StackNavigator(
     {
         Tabs: { screen: TabsScene },
-
         Invite: { screen: InviteScreen },
     },
     {

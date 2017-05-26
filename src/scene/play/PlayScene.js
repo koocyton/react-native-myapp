@@ -8,16 +8,16 @@ class PlayScene extends Component {
     });
 
     games = [
-        {title: '长途', face: require('../../asset/image/01.png'), date: '2016.02.22', money: '332'},
-        {title: '交通', face: require('../../asset/image/02.png'), date: '2016.02.23', money: '65'},
-        {title: '住宿', face: require('../../asset/image/03.png'), date: '2016.02.24', money: '25'},
-        {title: '餐饮', face: require('../../asset/image/04.png'), date: '2016.02.25', money: '125'},
-        {title: '补助', face: require('../../asset/image/05.png'), date: '2016.02.26', money: '63'},
+        {cover: require('../../asset/image/01.png'), },
+        {cover: require('../../asset/image/02.png'), },
+        {cover: require('../../asset/image/03.png'), },
+        {cover: require('../../asset/image/04.png'), },
+        {cover: require('../../asset/image/05.png'), },
     ];
 
     static renderGameItem(game, i) {
         return <View key={i} detail={game} style={styles.game}>
-            <Image style={styles.gameBackground} source={game.face}/>
+            <Image style={styles.gameBackground} source={game.cover}/>
         </View>;
     };
 
@@ -41,6 +41,7 @@ let styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         flex: 1,
+        backgroundColor: '#FFFFFF',
     },
     game: {
         height: 400,
@@ -49,7 +50,6 @@ let styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginTop: 10,
-        backgroundColor: '#FFFFFF',
         borderRadius: 10,
         overflow: 'hidden',
     },

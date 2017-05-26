@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { StyleSheet, ScrollView, View, Image, } from 'react-native';
+import { StyleSheet, ScrollView, View, Image, Text, } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -11,21 +11,37 @@ class FriendScene extends Component {
             <View style={{marginRight:20}}>
                 <Icon onPress={() => navigation.navigate('Invite')} name='md-person-add' size={20} color='#ffffff' />
             </View>
-        )
+        ),
     });
 
-    games = [
-        {title: '长途', face: require('../../asset/image/01.png'), date: '2016.02.22', money: '332'},
-        {title: '交通', face: require('../../asset/image/02.png'), date: '2016.02.23', money: '65'},
-        {title: '住宿', face: require('../../asset/image/03.png'), date: '2016.02.24', money: '25'},
-        {title: '餐饮', face: require('../../asset/image/04.png'), date: '2016.02.25', money: '125'},
-        {title: '补助', face: require('../../asset/image/05.png'), date: '2016.02.26', money: '63'},
+    friends = [
+        {name: '丝滑', portrait: require('../../asset/image/01.png'), level: 10},
+        {name: '安东', portrait: require('../../asset/image/02.png'), level: 10},
+        {name: '陈老师', portrait: require('../../asset/image/03.png'), level: 10},
+        {name: '牛牛', portrait: require('../../asset/image/04.png'), level: 10},
+        {name: '晓华', portrait: require('../../asset/image/05.png'), level: 10},
+        {name: '丝滑', portrait: require('../../asset/image/01.png'), level: 10},
+        {name: '安东', portrait: require('../../asset/image/02.png'), level: 10},
+        {name: '陈老师', portrait: require('../../asset/image/03.png'), level: 10},
+        {name: '牛牛', portrait: require('../../asset/image/04.png'), level: 10},
+        {name: '晓华', portrait: require('../../asset/image/05.png'), level: 10},
+        {name: '丝滑', portrait: require('../../asset/image/01.png'), level: 10},
+        {name: '安东', portrait: require('../../asset/image/02.png'), level: 10},
+        {name: '陈老师', portrait: require('../../asset/image/03.png'), level: 10},
+        {name: '牛牛', portrait: require('../../asset/image/04.png'), level: 10},
+        {name: '晓华', portrait: require('../../asset/image/05.png'), level: 10},
+        {name: '丝滑', portrait: require('../../asset/image/01.png'), level: 10},
+        {name: '安东', portrait: require('../../asset/image/02.png'), level: 10},
+        {name: '陈老师', portrait: require('../../asset/image/03.png'), level: 10},
+        {name: '牛牛', portrait: require('../../asset/image/04.png'), level: 10},
+        {name: '晓华', portrait: require('../../asset/image/05.png'), level: 10},
     ];
 
-    static renderGameItem(game, i) {
-        return <View key={i} detail={game} style={styles.game}>
-            <Image style={styles.gameBackground} source={game.face}/>
-        </View>;
+    static renderGameItem(friend, i) {
+        return <View key={i} detail={friend} style={styles.game}>
+            <Image style={styles.portrait} source={friend.portrait}/>
+            <Text style={styles.name}>{friend.name}</Text>
+        </View>
     };
 
     render() {
@@ -34,7 +50,7 @@ class FriendScene extends Component {
             <View style={styles.container}>
                 <ScrollView keyboardDismissMode={'on-drag'}>
                     {
-                        this.games.map((game,i)=>FriendScene.renderGameItem(game,i))
+                        this.friends.map((friend,i)=>FriendScene.renderGameItem(friend,i))
                     }
                 </ScrollView>
             </View>
@@ -48,28 +64,30 @@ let styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         flex: 1,
+        backgroundColor: '#FFFFFF',
     },
     game: {
-        height: 400,
+        height: 54,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 10,
-        backgroundColor: '#FFFFFF',
-        borderRadius: 10,
         overflow: 'hidden',
-    },
-    gameBackground: {
-        height: 400,
         flex: 1,
+        padding:3,
+        borderBottomWidth:1,
+        borderBottomColor:'#EEEEEE',
+        alignContent:'flex-start',
     },
-    tab: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingBottom: 0,
-    }
+    name: {
+        height: 30,
+        width: 150,
+        padding: 14,
+    },
+    portrait: {
+        height: 30,
+        width: 30,
+        padding: 10,
+        left:10,
+    },
 });
 
 module.exports = FriendScene;
