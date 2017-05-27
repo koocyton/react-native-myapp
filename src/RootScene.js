@@ -10,7 +10,7 @@ import NoticeScene from './scene/notice/NoticeScene';
 import MineScene from './scene/mine/MineScene';
 
 import InviteScreen from './scene/friend/InviteScreen';
-
+import WereWolfScreen from './scene/play/WereWolfScreen';
 
 const TabsScene = TabNavigator(
     {
@@ -80,16 +80,16 @@ const TabsScene = TabNavigator(
         tabBarOptions: {
             activeTintColor: '#6B8E23',
             inactiveTintColor: '#ADADAD',
-            style: { backgroundColor: '#ffffff' },
+            style: { backgroundColor: '#EFEFEF' },
         },
     }
-
 );
 
 let Navigator = StackNavigator(
     {
         Tabs: { screen: TabsScene },
         Invite: { screen: InviteScreen },
+        WereWolf: { screen: WereWolfScreen },
     },
     {
         navigationOptions: {

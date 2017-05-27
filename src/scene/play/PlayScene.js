@@ -1,5 +1,5 @@
 import React, {Component,} from 'react';
-import {StyleSheet, ScrollView, View, Image, StatusBar, } from 'react-native';
+import {StyleSheet, ScrollView, View, Image, TouchableOpacity, } from 'react-native';
 
 class PlayScene extends Component {
 
@@ -15,19 +15,21 @@ class PlayScene extends Component {
         {cover: require('../../asset/image/05.png'), },
     ];
 
-    static renderGameItem(game, i) {
+    renderGameItem(game, i) {
         return <View key={i} detail={game} style={styles.game}>
-            <Image style={styles.gameBackground} source={game.cover}/>
-        </View>;
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('WereWolf')}>
+                <Image style={styles.gameBackground} source={game.cover} />
+            </TouchableOpacity>
+        </View>
     };
 
     render() {
 
         return (
             <View style={styles.container}>
-                <ScrollView style={{marginBottom: 10,}} keyboardDismissMode={'on-drag'}>
+                <ScrollView style={{paddingBottom: 10,}} keyboardDismissMode={'on-drag'}>
                     {
-                        this.games.map((game, i) => PlayScene.renderGameItem(game, i))
+                        this.games.map((game, i) => this.renderGameItem(game, i))
                     }
                 </ScrollView>
             </View>

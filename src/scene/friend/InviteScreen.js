@@ -23,16 +23,16 @@ class InviteScreen extends Component {
 
                 </View>
                 <View style={[styles.platform, {marginTop:50, }]}>
-                    <Text>添加 Facebook 好友</Text>
+                    <Text>Facebook 好友</Text>
                 </View>
                 <View style={styles.platform}>
-                    <Text>添加 微信 好友</Text>
+                    <Text>微信 好友</Text>
                 </View>
                 <View style={styles.platform}>
-                    <Text>添加 附近的 好友</Text>
+                    <Text>附近的 好友</Text>
                 </View>
                 <View style={styles.platform}>
-                    <Text>添加 电话簿里的 好友</Text>
+                    <Text>电话簿里的 好友</Text>
                 </View>
             </View>
         );
